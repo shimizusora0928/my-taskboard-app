@@ -1,10 +1,54 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <title>TaskBoard</title>
-  </head>
-  <body>
-    <h1>TaskBoard 開発環境</h1>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>タスクボード</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-inner">
+      <h1 class="header-title">タスクボード</h1>
+      <p class="header-subtitle">TypeScript 総合演習</p>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="card">
+      <h2 class="card-heading">タスクを追加</h2>
+      <form id="task-form" class="task-form">
+        <input type="text" id="task-title" class="input" placeholder="タスクのタイトルを入力..." />
+        <select id="task-priority" class="select" aria-label="優先度を選択">
+          <option value="low">優先度：低</option>
+          <option value="medium">優先度：中</option>
+          <option value="high">優先度：高</option>
+        </select>
+        <button type="submit" class="btn btn--primary">追加</button>
+      </form>
+      <p id="message-area" class="message"></p>
+    </section>
+
+    <div id="stats-area" class="stats"></div>
+
+    <div class="toolbar">
+      <label class="filter-label">
+        絞り込み
+        <select id="status-filter" class="select select--sm">
+          <option value="all">すべて</option>
+          <option value="todo">未着手</option>
+          <option value="in_progress">進行中</option>
+          <option value="done">完了</option>
+        </select>
+      </label>
+    </div>
+
+    <ul id="task-list" class="task-list" aria-label="タスク一覧" aria-live="polite" aria-busy="true"></ul>
+
+  </main>
+
+  <script type="module" src="./taskBoard.ts"></script>
+</body>
 </html>

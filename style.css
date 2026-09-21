@@ -1,0 +1,312 @@
+/* ---- Variables ---- */
+:root {
+  --primary:       #1a24fc;
+  --primary-dark:  #1219d4;
+  --primary-glow:  rgba(26, 36, 252, 0.14);
+
+  --success:  #1da87a;
+  --warning:  #e09020;
+  --danger:   #e03040;
+  --info:     #1a24fc;
+
+  --bg:         #ffffff;
+  --surface:    #ffffff;
+  --border:     #ced2fc;
+  --text:       #0d1240;
+  --text-muted: #5058a0;
+  --text-light: #9498cc;
+
+  --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.10), 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.11), 0 2px 4px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+  --radius-sm: 6px;
+  --radius:    10px;
+  --radius-lg: 16px;
+}
+
+/* ---- Reset ---- */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ---- Base ---- */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---- Header ---- */
+.header {
+  background: linear-gradient(135deg, #0f16c0 0%, #1a24fc 100%);
+  padding: 28px 0 24px;
+  box-shadow: 0 4px 20px rgba(26, 36, 252, 0.28);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header-inner {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.header-title {
+  color: #ffffff;
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.header-subtitle {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.85rem;
+  margin-top: 2px;
+}
+
+/* ---- Container ---- */
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ---- Card ---- */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 22px 24px;
+  box-shadow: var(--shadow-sm);
+}
+
+.card-heading {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+}
+
+/* ---- Form ---- */
+.task-form {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.input {
+  flex: 1;
+  min-width: 140px;
+  padding: 10px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  color: var(--text);
+  background: var(--bg);
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
+}
+
+.input::placeholder { color: var(--text-light); }
+
+.input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-glow);
+  background: #ffffff;
+}
+
+.select {
+  padding: 10px 32px 10px 12px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 0.875rem;
+  color: var(--text);
+  background: var(--bg);
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%2364748b'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 11px center;
+  background-size: 10px;
+}
+
+.select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-glow);
+}
+
+/* ---- Button ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s, box-shadow 0.15s, transform 0.1s;
+  white-space: nowrap;
+}
+
+.btn--primary {
+  background: var(--primary);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(26, 36, 252, 0.30);
+}
+
+.btn--primary:hover {
+  background: var(--primary-dark);
+  box-shadow: 0 4px 14px rgba(26, 36, 252, 0.38);
+  transform: translateY(-1px);
+}
+
+.btn--primary:active { transform: translateY(0); }
+
+/* ---- Message ---- */
+.message {
+  margin-top: 14px;
+  min-height: 1.3em;
+  font-size: 0.85rem;
+  padding: 0 2px;
+  color: var(--text-muted);
+  transition: color 0.2s;
+}
+
+.message:not(:empty) {
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  background: #f8fafc;
+  border-left: 3px solid var(--border);
+}
+
+/* ---- Stats ---- */
+.stats {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 20px;
+  box-shadow: var(--shadow-sm);
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  text-align: center;
+}
+
+/* ---- Toolbar ---- */
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.filter-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.select--sm {
+  padding: 8px 28px 8px 10px;
+  font-size: 0.85rem;
+}
+
+/* ---- Task List ---- */
+.task-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+#task-list:empty::after {
+  content: 'タスクはありません';
+  display: block;
+  text-align: center;
+  padding: 40px 0;
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+/* Task items — created dynamically by student */
+#task-list li {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.15s, transform 0.15s, border-color 0.15s;
+  animation: slideIn 0.2s ease-out;
+}
+
+#task-list li:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+  border-color: #cbd5e1;
+}
+
+/* [優先度] タイトル */
+#task-list li span:first-child {
+  font-size: 0.9rem;
+  color: var(--text);
+  flex: 1;
+  line-height: 1.4;
+}
+
+/* ステータスラベル */
+#task-list li span:last-child {
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: #f1f5f9;
+  color: var(--text-muted);
+  padding: 4px 12px;
+  border-radius: 999px;
+  white-space: nowrap;
+  letter-spacing: 0.03em;
+  border: 1px solid var(--border);
+}
+
+/* ---- Animation ---- */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 480px) {
+  .header { padding: 20px 0 18px; }
+  .header-title { font-size: 1.3rem; }
+  .container { padding: 16px 16px; gap: 12px; }
+  .card { padding: 18px 16px; }
+  .task-form { flex-direction: column; }
+  .btn { width: 100%; justify-content: center; }
+}
