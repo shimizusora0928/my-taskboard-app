@@ -3,7 +3,7 @@
  */
 import React from "react";
 
-interface TaskStatsProps {
+type TaskStatsProps = {
   stats: {
     todo: number;
     in_progress: number;

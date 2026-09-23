@@ -4,7 +4,7 @@
 import React from "react";
 import { Task, Status, Priority } from '../types/task';
 
-interface TaskItemProos {
+type TaskItemProos = {
   task: Task;
   onStatusChange: (id: number, status: Status) => void;
   onDelete: (id: number) => void;

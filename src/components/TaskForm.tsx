@@ -4,7 +4,7 @@
 import React, { useState } from "react";
 import { Priority } from '../types/task';
 
-interface TaskFormProps {
+type TaskFormProps = {
   onAddTask: (title: string, priority: Priority) => void;
   message: string;
 }

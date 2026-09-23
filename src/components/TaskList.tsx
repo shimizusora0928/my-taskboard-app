@@ -5,7 +5,7 @@ import React from 'react';
 import { Task, Status } from '../types/task';
 import { TaskItem } from './TaskItem';
 
-interface TaskListProps {
+type TaskListProps = {
   tasks: Task[];
   onStatusChange: (id: number, status: Status) => void;
   onDelete: (id: number) => void;

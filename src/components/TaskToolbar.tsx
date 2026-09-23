@@ -4,7 +4,7 @@
 import React from "react";
 import { FilterStatus } from '../types/task';
 
-interface TaskToolbarProps {
+type TaskToolbarProps = {
   filter: FilterStatus;
   onFilterChange: (filter: FilterStatus) => void;
 };
